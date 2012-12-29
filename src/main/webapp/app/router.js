@@ -9,7 +9,8 @@ define('app/router',[
 			enableLogging: true,
 			root:Ember.Route.extend({
 				
-				showDemo:Ember.Route.transitionTo('demo'),
+				showDemo:Ember.Route.transitionTo('example01'),
+				showContact:Ember.Route.transitionTo('contact'),
 				
 				index:Ember.Route.extend({
 					
@@ -21,9 +22,9 @@ define('app/router',[
 					}
 					
 				}),
-				demo:Ember.Route.extend({
+				example01:Ember.Route.extend({
 					
-					route:'/demo',
+					route:'/example01',
 					
 					initialState: 'contributors',
 					
@@ -84,6 +85,16 @@ define('app/router',[
 						})
 						
 					})
+					
+				}),
+				contact:Ember.Route.extend({
+					
+					route:'/example02',
+					connectOutlets: function(router){
+						
+						router.get('applicationController').connectOutlet("contacts");
+						
+					}
 					
 				})
 				
